@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage with Line Break Issues</title>
+    <style>
+        /* Problematic CSS */
+        .container {
+            width: 300px;
+            border: 1px solid #333;
+            margin: 20px;
+            padding: 15px;
+        }
+        
+        .broken-text {
+            /* No word break control - will break anywhere */
+        }
+        
+        /* Fixed CSS - Will be used later */
+        .fixed-text {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: normal;
+            hyphens: auto;
+        }
+        
+        h1 {
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        
+        .example {
+            margin-bottom: 30px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .controls {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>English Text Layout Issues and Fixes</h1>
+    
+    <div class="controls">
+        <button onclick="applyFix()">Apply Fix</button>
+        <button onclick="removeFix()">Remove Fix</button>
+    </div>
+    
+    <div class="example">
+        <h2>Problematic Text Layout</h2>
+        <div class="container">
+            <p class="broken-text">
+                This is an example of a long paragraph with very long words like supercalifragilisticexpialidocious and pneumonoultramicroscopicsilicovolcanoconiosis that might cause problems with line breaks and layout. The text might break in the middle of words and cause an unpleasant reading experience for your website visitors.
+            </p>
+            <p class="broken-text">
+                The issue is particularly noticeable when you have a narrow container combined with long English words. For example: antidisestablishmentarianism, incomprehensibilities, electroencephalographically - all of these can cause issues with your website layout if not properly handled with CSS.
+            </p>
+        </div>
+    </div>
+    
+    <div class="example">
+        <h2>Result After Fix</h2>
+        <div class="container">
+            <p id="fixed-example" class="broken-text">
+                This is an example of a long paragraph with very long words like supercalifragilisticexpialidocious and pneumonoultramicroscopicsilicovolcanoconiosis that might cause problems with line breaks and layout. The text might break in the middle of words and cause an unpleasant reading experience for your website visitors.
+            </p>
+            <p id="fixed-example2" class="broken-text">
+                The issue is particularly noticeable when you have a narrow container combined with long English words. For example: antidisestablishmentarianism, incomprehensibilities, electroencephalographically - all of these can cause issues with your website layout if not properly handled with CSS.
+            </p>
+        </div>
+    </div>
+    
+    <div class="explanation" style="margin: 20px;">
+        <h2>CSS Properties to Fix Line Break Issues:</h2>
+        <ul>
+            <li><strong>word-wrap: break-word;</strong> - Allows long words to be broken and wrap onto the next line</li>
+            <li><strong>overflow-wrap: break-word;</strong> - Similar to word-wrap, newer standard name</li>
+            <li><strong>word-break: normal;</strong> - Controls word breaking rules</li>
+            <li><strong>hyphens: auto;</strong> - Adds hyphens when breaking words across lines</li>
+        </ul>
+    </div>
+    
+    <script>
+        function applyFix() {
+            document.getElementById("fixed-example").className = "fixed-text";
+            document.getElementById("fixed-example2").className = "fixed-text";
+        }
+        
+        function removeFix() {
+            document.getElementById("fixed-example").className = "broken-text";
+            document.getElementById("fixed-example2").className = "broken-text";
+        }
+    </script>
+</body>
+</html>
